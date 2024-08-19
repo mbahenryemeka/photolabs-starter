@@ -16,7 +16,10 @@ const sampleDataForPhotoListItem = {
 // step 1, loop through the sample data for list item using the map method
 
 
-const photos = (new Array(3)).fill(null).map((_, index) => <PhotoListItem
+
+// Note: Rendering a single component to build components in isolation
+const App = () => {
+  const photos = (new Array(3)).fill(null).map((_, index) => <PhotoListItem
   id={sampleDataForPhotoListItem.id}
   location={sampleDataForPhotoListItem.location}
   imageSource={sampleDataForPhotoListItem.imageSource}
@@ -24,8 +27,6 @@ const photos = (new Array(3)).fill(null).map((_, index) => <PhotoListItem
   profile={sampleDataForPhotoListItem.profile}
   key={index}
 />)
-// Note: Rendering a single component to build components in isolation
-const App = () => {
   return (
     <div className="App">
       <div className='photo-list'>
