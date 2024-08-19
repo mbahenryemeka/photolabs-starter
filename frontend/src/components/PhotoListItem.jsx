@@ -7,7 +7,7 @@ import "../styles/PhotoListItem.scss";
 const PhotoListItem = (props) => {
   const { id, location, imageSource, username, profile } = props;
   return (
-    <div className="photo-list__item">
+    <div className="photo-list__item" id={id}>
       <PhotoFavButton />
       <img className="photo-list__image" src={imageSource} alt="" />
       <div className="photo-list__user-details" >
