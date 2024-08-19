@@ -16,7 +16,7 @@ const sampleDataForPhotoListItem = {
 // step 1, loop through the sample data for list item using the map method
 
 
-const NewPhotoListItems = [1,2,3].map((_, index) => <PhotoListItem
+const photos = (new Array(3)).fill(null).map((_, index) => <PhotoListItem
   id={sampleDataForPhotoListItem.id}
   location={sampleDataForPhotoListItem.location}
   imageSource={sampleDataForPhotoListItem.imageSource}
@@ -29,7 +29,7 @@ const App = () => {
   return (
     <div className="App">
       <div className='photo-list'>
-        {NewPhotoListItems}
+        {photos}
       </div>
     </div>
   );
