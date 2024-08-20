@@ -20,10 +20,10 @@ const sampleDataForTopicList = [
   },
 ];
 
-const TopicList = () => {
+const TopicList = ({topics}) => {
   return (
     <div className="top-nav-bar__topic-list">
-      {sampleDataForTopicList.map((data, index) => (
+      {topics.map((data, index) => (
         <TopicListItem
           key={index} 
           id={data.id} 
