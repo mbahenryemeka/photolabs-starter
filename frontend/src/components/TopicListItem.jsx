@@ -1,7 +1,5 @@
 import React from "react";
-
 import "../styles/TopicListItem.scss";
-
 
 const TopicListItem = (props) => {
   const {id,slug,title} = props;
@@ -13,5 +11,4 @@ const TopicListItem = (props) => {
     </div>
   );
 };
-
 export default TopicListItem;
