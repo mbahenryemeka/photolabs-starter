@@ -5,9 +5,10 @@ import photos from './mocks/photos';
 import topics from './mocks/topics';
 
 const App = () => {
+  
   return (
-    <div className="App">      
-      <HomeRoute photos={photos} topics={topics}/>
+    <div className="App">
+      <HomeRoute photos={photos} topics={topics} />
     </div>
   );
 };

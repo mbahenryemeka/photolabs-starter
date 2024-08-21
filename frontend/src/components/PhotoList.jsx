@@ -57,7 +57,11 @@ const sampleDataForPhotoList = [
   },
 ];
 
-const PhotoList = ({photos}) => {
+
+
+const PhotoList = ({photos,addPhoto}) => {
+  
+
   return (
     <ul className="photo-list">
       {photos.map((data, index) => (
@@ -68,6 +72,7 @@ const PhotoList = ({photos}) => {
           imageSource={data.urls.regular}
           username={data.user.username}
           profile={data.user.profile}
+          addPhoto={addPhoto}
         />))
       }
     </ul>
