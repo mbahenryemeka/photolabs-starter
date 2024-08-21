@@ -8,15 +8,17 @@ import { useState } from 'react';
 const HomeRoute = ({ photos, topics }) => {
   const [favouritePhotos, setFavouritePhotos] = useState([]);
   const addPhoto = (id) => {
-    //const isIncluded = favouritePhotos.includes(id);
-    //console.log("isIncluded", isIncluded);
-    if (!favouritePhotos.includes(id)) {
-      setFavouritePhotos(prevPhotos => [...prevPhotos, id])
-    };
+    if (favouritePhotos.includes(id)) {
+      // Remove the photo id from the array if it is already included
+      setFavouritePhotos(prevPhotos => prevPhotos.filter(photoId => photoId !== id));
+    } else {
+      // Add the photo id to the array if it is not included
+      setFavouritePhotos(prevPhotos => [...prevPhotos, id]);
+    }
   }
   return (
     <div className="home-route">
-      <TopNavigation topics={topics} favouritePhotos={favouritePhotos}/>
+      <TopNavigation topics={topics} favouritePhotos={favouritePhotos} />
       <PhotoList photos={photos} addPhoto={addPhoto} />
     </div>
   );
