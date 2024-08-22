@@ -5,7 +5,7 @@ import '../styles/HomeRoute.scss';
 import { useState } from 'react';
 
 
-const HomeRoute = ({ photos, topics }) => {
+const HomeRoute = ({ photos, topics, setDisplayModal }) => {
   const [favouritePhotos, setFavouritePhotos] = useState([]);
   const addPhoto = (id) => {
     if (favouritePhotos.includes(id)) {
@@ -19,7 +19,7 @@ const HomeRoute = ({ photos, topics }) => {
   return (
     <div className="home-route">
       <TopNavigation topics={topics} isFavPhotoExist={favouritePhotos.length > 0}/>
-      <PhotoList photos={photos} addPhoto={addPhoto} />
+      <PhotoList photos={photos} addPhoto={addPhoto} setDisplayModal={setDisplayModal} />
     </div>
   );
 };
