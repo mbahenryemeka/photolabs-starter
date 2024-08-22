@@ -59,7 +59,7 @@ const sampleDataForPhotoList = [
 
 
 
-const PhotoList = ({photos,addPhoto}) => {
+const PhotoList = ({photos,addPhoto,setDisplayModal}) => {
   
 
   return (
@@ -73,6 +73,7 @@ const PhotoList = ({photos,addPhoto}) => {
           username={data.user.username}
           profile={data.user.profile}
           addPhoto={addPhoto}
+          setDisplayModal={setDisplayModal}
         />))
       }
     </ul>
