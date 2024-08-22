@@ -5,7 +5,7 @@ import closeSymbol from '../assets/closeSymbol.svg';
 import PhotoList from '../components/PhotoList';
 import userEvent from '@testing-library/user-event';
 
-const PhotoDetailsModal = ({ setDisplayModal, displayModal }) => {
+const PhotoDetailsModal = ({ setDisplayModal, displayModal, favouritePhotos, addPhoto }) => {
   const { urls, user, location, similar_photos } = displayModal;
   
   const photos = Object.values(similar_photos);
@@ -29,7 +29,7 @@ const PhotoDetailsModal = ({ setDisplayModal, displayModal }) => {
       </div>
       <div>
       <PhotoList
-        photos={photos}               
+        photos={photos} favouritePhotos={favouritePhotos} addPhoto={addPhoto}              
       />
       </div>
 
