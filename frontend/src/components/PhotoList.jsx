@@ -74,6 +74,7 @@ const PhotoList = ({photos,addPhoto,setDisplayModal}) => {
           profile={data.user.profile}
           addPhoto={addPhoto}
           setDisplayModal={setDisplayModal}
+          photoData={data}     
         />))
       }
     </ul>
