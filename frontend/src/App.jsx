@@ -8,8 +8,6 @@ import PhotoDetailsModal from 'routes/PhotoDetailsModal';
 
 const App = () => {
   const [displayModal, setDisplayModal] = useState(false);
-  console.log('displayModal', displayModal); 
-
   const [favouritePhotos, setFavouritePhotos] = useState([]);
   const addPhoto = (id) => {
     if (favouritePhotos.includes(id)) {

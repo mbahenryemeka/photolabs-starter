@@ -19,11 +19,15 @@ const PhotoDetailsModal = ({ setDisplayModal, displayModal, favouritePhotos, add
       <div>
         <img className="photo-details-modal__image" src={urls.full} alt="selected" />
       </div>
+      
+      <div className="photo-list__user-details">
       <div><img className="photo-list__user-profile" src={user.profile} alt="" /></div>
-      <div className="photo-list__user-info">
-        <p>{user.username}</p>
-        <p className="photo-list__user-location">{location.city}, {location.country}</p>
+        <div className="photo-list__user-info">
+          {user.username}
+          <div className="photo-list__user-location">{location.city}, {location.country}</div>
+        </div>
       </div>
+      
       <div>
         <p>Similar Photos</p>
       </div>
