@@ -1,23 +1,19 @@
 import React,{ useState } from 'react';
 import './App.scss';
-import HomeRoute from './routes/HomeRoute';
-import photos from './mocks/photos';
-import topics from './mocks/topics';
+import HomeRoute from 'routes/HomeRoute';
+import photos from 'mocks/photos';
+import topics from 'mocks/topics';
 import PhotoDetailsModal from 'routes/PhotoDetailsModal';
+import useApplicationData from 'hooks/useApplicationData';
 
 
 const App = () => {
-  const [displayModal, setDisplayModal] = useState(false);
-  const [favouritePhotos, setFavouritePhotos] = useState([]);
-  const addPhoto = (id) => {
-    if (favouritePhotos.includes(id)) {
-      // Remove the photo id from the array if it is already included
-      setFavouritePhotos(prevPhotos => prevPhotos.filter(photoId => photoId !== id));
-    } else {
-      // Add the photo id to the array if it is not included
-      setFavouritePhotos(prevPhotos => [...prevPhotos, id]);
-    }
-  }
+  const {
+    displayModal,
+    setDisplayModal,
+    favouritePhotos,
+    addPhoto,
+  } = useApplicationData();
 
   return (
     <div className="App">

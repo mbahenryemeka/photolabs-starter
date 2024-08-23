@@ -23,3 +23,4 @@ const useApplicationData = () => {
     addPhoto,
   };
 };
+export default useApplicationData;
