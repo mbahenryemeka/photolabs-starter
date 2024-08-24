@@ -4,7 +4,6 @@ import FavIcon from './FavIcon';
 import '../styles/PhotoFavButton.scss';
 
 function PhotoFavButton(props) {
-  console.log('props', props)
   const {addPhoto, id} = props;
  
   const handleClick = () => {  

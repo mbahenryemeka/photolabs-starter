@@ -6,7 +6,7 @@ import "../styles/PhotoListItem.scss";
 const PhotoListItem = (props) => {
   const { id, location, imageSource, username, profile, addPhoto,setDisplayModal, photoData, favouritePhotos} = props;
   
-  console.log('favouritePhotos', favouritePhotos);
+  
   
   const displayModal = () => {
     setDisplayModal(photoData)   

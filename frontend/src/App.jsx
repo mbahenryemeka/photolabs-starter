@@ -9,17 +9,16 @@ import useApplicationData from 'hooks/useApplicationData';
 
 const App = () => {
   const {
-    displayModal,
-    setDisplayModal,
-    favouritePhotos,
+    state,
+    toggleModal,
     addPhoto,
   } = useApplicationData();
 
   return (
     <div className="App">
-     <HomeRoute photos={photos} topics={topics}  setDisplayModal={setDisplayModal} favouritePhotos={favouritePhotos} addPhoto={addPhoto}/>
+     <HomeRoute photos={photos} topics={topics}  setDisplayModal={toggleModal} favouritePhotos={state.favouritePhotos} addPhoto={addPhoto}/>
       {/* if displayModal is true, render PhotoDetailsModal */}
-      {displayModal && <PhotoDetailsModal setDisplayModal={setDisplayModal} displayModal={displayModal} favouritePhotos={favouritePhotos} addPhoto={addPhoto} />} 
+      {state.displayModal && <PhotoDetailsModal setDisplayModal={toggleModal} displayModal={state.displayModal} favouritePhotos={state.favouritePhotos} addPhoto={addPhoto} />} 
     </div>
   );
 };
