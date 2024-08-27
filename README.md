@@ -2,6 +2,7 @@
 The PhotoLabs project for the Web Development React course programming.
 
 # Photolabs
+!["The front page of the photolab app"] (https://github.com/mbahenryemeka/photolabs-starter/blob/main/docs/photoLab1_homePage.png?raw=true)
 
 ## Setup
 
