@@ -13,7 +13,8 @@ export const ACTIONS = {
   REMOVE_PHOTO: 'REMOVE_PHOTO',
   SELECT_PHOTO: 'SELECT_PHOTO',
   SET_PHOTO_DATA: 'SET_PHOTO_DATA',
-  SET_TOPIC_DATA: 'SET_TOPIC_DATA'
+  SET_TOPIC_DATA: 'SET_TOPIC_DATA',
+
 }
 
 const reducer = (state, action) => {
@@ -32,6 +33,8 @@ const reducer = (state, action) => {
 
     case 'SET_TOPIC_DATA':
       return {...state, topicData: action.payload }
+
+   
 
     default:
       throw new Error(`Action type not supported, ${action.type}`);
@@ -53,21 +56,29 @@ const useApplicationData = () => {
     .then(data =>dispatch({ type: ACTIONS.SET_TOPIC_DATA, payload: data }))
   }, []);
 
+  
+
   const addPhoto = (photoId) => {
     if (state.favouritePhotos.includes(photoId)) {
       const copyOfFavouritePhotos = [...state.favouritePhotos].filter(favPhotoId => favPhotoId !== photoId);
       dispatch({ type: ACTIONS.REMOVE_PHOTO, payload: copyOfFavouritePhotos });
       return
-    }
-
+    }    
     dispatch({ type: ACTIONS.ADD_PHOTO, payload: photoId });
   };
+
+  const onTopicSelect = (topicID) => {
+    fetch(`/api/topics/photos/${topicID}`)
+    .then(response =>response.json())
+    .then(data => dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: data })) 
+  }
 
   const toggleModal = (photoDetails) => dispatch({ type: ACTIONS.SELECT_PHOTO, payload: photoDetails });
   return {
     state,
     toggleModal,
     addPhoto,
+    onTopicSelect
   };
 
   
