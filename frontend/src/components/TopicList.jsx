@@ -20,7 +20,7 @@ const sampleDataForTopicList = [
   },
 ];
 
-const TopicList = ({topics}) => {
+const TopicList = ({topics, onTopicSelect}) => {
   return (
     <div className="top-nav-bar__topic-list">
       {topics.map((data, index) => (
@@ -28,7 +28,8 @@ const TopicList = ({topics}) => {
           key={index} 
           id={data.id} 
           slug={data.slug}
-          title={data.title}          
+          title={data.title}
+          onTopicSelect={onTopicSelect}          
         />))
       }
     </div>
