@@ -59,15 +59,15 @@ const sampleDataForPhotoList = [
 
 
 
-const PhotoList = ({photos,addPhoto,setDisplayModal,favouritePhotos}) => {
-  
+const PhotoList = ({ photos, addPhoto, setDisplayModal, favouritePhotos }) => {
+
 
   return (
     <ul className="photo-list">
       {photos.map((data, index) => (
         <PhotoListItem
-          key={index} 
-          id={data.id} 
+          key={index}
+          id={data.id}
           location={data.location}
           imageSource={data.urls.regular}
           username={data.user.name}
@@ -75,7 +75,7 @@ const PhotoList = ({photos,addPhoto,setDisplayModal,favouritePhotos}) => {
           addPhoto={addPhoto}
           setDisplayModal={setDisplayModal}
           photoData={data}
-          favouritePhotos={favouritePhotos}     
+          favouritePhotos={favouritePhotos}
         />))
       }
     </ul>

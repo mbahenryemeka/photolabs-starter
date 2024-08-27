@@ -15,9 +15,9 @@ const App = () => {
 
   return (
     <div className="App">
-     <HomeRoute photos={state.photoData} topics={state.topicData}  setDisplayModal={toggleModal} favouritePhotos={state.favouritePhotos} addPhoto={addPhoto} onTopicSelect={onTopicSelect}/>
+      <HomeRoute photos={state.photoData} topics={state.topicData} setDisplayModal={toggleModal} favouritePhotos={state.favouritePhotos} addPhoto={addPhoto} onTopicSelect={onTopicSelect} />
       {/* if displayModal is true, render PhotoDetailsModal */}
-      {state.displayModal && <PhotoDetailsModal setDisplayModal={toggleModal} displayModal={state.displayModal} favouritePhotos={state.favouritePhotos} addPhoto={addPhoto} />} 
+      {state.displayModal && <PhotoDetailsModal setDisplayModal={toggleModal} displayModal={state.displayModal} favouritePhotos={state.favouritePhotos} addPhoto={addPhoto} />}
     </div>
   );
 };

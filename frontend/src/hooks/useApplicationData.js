@@ -1,6 +1,5 @@
 import { useReducer, useEffect } from 'react';
 
-
 const initialState = {
   displayModal: false,
   favouritePhotos: [],
@@ -14,7 +13,6 @@ export const ACTIONS = {
   SELECT_PHOTO: 'SELECT_PHOTO',
   SET_PHOTO_DATA: 'SET_PHOTO_DATA',
   SET_TOPIC_DATA: 'SET_TOPIC_DATA',
-
 }
 
 const reducer = (state, action) => {
@@ -32,45 +30,44 @@ const reducer = (state, action) => {
       return { ...state, photoData: action.payload };
 
     case 'SET_TOPIC_DATA':
-      return {...state, topicData: action.payload }
+      return { ...state, topicData: action.payload }
 
-   
+
 
     default:
       throw new Error(`Action type not supported, ${action.type}`);
   }
 };
+
 // Custom Hook for managing application state
 const useApplicationData = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  useEffect(()=> {
+  useEffect(() => {
     fetch('/api/photos')
-    .then (response => response.json())
-    .then(data =>dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: data }))
+      .then(response => response.json())
+      .then(data => dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: data }))
   }, []);
 
-  useEffect(()=> {
+  useEffect(() => {
     fetch('/api/topics')
-    .then (response => response.json())
-    .then(data =>dispatch({ type: ACTIONS.SET_TOPIC_DATA, payload: data }))
+      .then(response => response.json())
+      .then(data => dispatch({ type: ACTIONS.SET_TOPIC_DATA, payload: data }))
   }, []);
-
-  
 
   const addPhoto = (photoId) => {
     if (state.favouritePhotos.includes(photoId)) {
       const copyOfFavouritePhotos = [...state.favouritePhotos].filter(favPhotoId => favPhotoId !== photoId);
       dispatch({ type: ACTIONS.REMOVE_PHOTO, payload: copyOfFavouritePhotos });
       return
-    }    
+    }
     dispatch({ type: ACTIONS.ADD_PHOTO, payload: photoId });
   };
 
   const onTopicSelect = (topicID) => {
     fetch(`/api/topics/photos/${topicID}`)
-    .then(response =>response.json())
-    .then(data => dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: data })) 
+      .then(response => response.json())
+      .then(data => dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: data }))
   }
 
   const toggleModal = (photoDetails) => dispatch({ type: ACTIONS.SELECT_PHOTO, payload: photoDetails });
@@ -80,9 +77,8 @@ const useApplicationData = () => {
     addPhoto,
     onTopicSelect
   };
-
-  
 };
+
 export default useApplicationData;
 
 
